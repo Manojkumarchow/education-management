@@ -1,0 +1,31 @@
+College Management System
+
+Backend Design - Basic
+1. Users Table
+    1. Types of Users
+        1. Admin
+        2. HOD
+        3. Staff / Faculty
+        4. Student
+2. Student Table
+    1. Basic fields
+3. Faculty Table
+    1. Basic fields
+4. Marks Table
+    1. Basic fields
+Every table in the database should have 4 fields. Created_on, Created_by, Updated_on, Updated_by. These 4 fields will be used for tracking purposes
+
+We will not store any PII data (email, phone, DOB, address) in any of the table as it should be in compliance with many things.
+
+V1 will have very basic things like
+	1. User Login
+	2. Register Page (User can register with basic things like H.T No or EMP_ID)
+	3. Admin/HOD will approve the user access till then registered user cannot login to the application
+	4. Faculty can view the student details (initially can view all the student details, we will modify the view access later on)
+	5. Student can view his/her class student details (Modify the view access later)
+	6. Faculty can download the student details into excel format (we will add the filters in the UI in V2)
+	7. Faculty can upload study resources, student can download them (V2)
+	8. Upon login, we will have a drop-down on the user image/icon, it will have various options like mark details, fee details, faculty details etc..
+	9. We will have a nav bar at the top, that shows Home | News/Events | Contact Details (Home Page needs to be discussed)
+
+Any suggestions?
