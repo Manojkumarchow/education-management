@@ -7,9 +7,9 @@ on:
   push:
     branches:
     - commit-branch
+    - master
   pull_request:
     branches:
-    - main
     - master
   schedule:
   - cron: "0 4 * * 1-5"
