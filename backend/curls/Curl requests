@@ -20,5 +20,3 @@ curl --location --request POST 'http://localhost:8080/users/createUser' \
 Delete User By Id
 
 curl --location --request DELETE 'http://localhost:8080/users/1'
-
-curl --location --request DELETE 'http://localhost:8080/users/1'
