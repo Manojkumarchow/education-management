@@ -1,0 +1,22 @@
+Get All Users
+
+curl --location --request GET 'http://localhost:8080/users'
+
+Get User By Id
+
+curl --location --request GET 'http://localhost:8080/users/user1'
+
+Create User
+
+curl --location --request POST 'http://localhost:8080/users/createUser' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    // "id": 4,
+    "username": "user1",
+    "category": "category1",
+    "password": "password1"
+}'
+
+Delete User By Id
+
+curl --location --request DELETE 'http://localhost:8080/users/1'
