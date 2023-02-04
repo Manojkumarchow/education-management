@@ -20,3 +20,12 @@ curl --location --request POST 'http://localhost:8080/users/createUser' \
 Delete User By Id
 
 curl --location --request DELETE 'http://localhost:8080/users/1'
+
+User Login
+
+curl --location --request POST 'http://localhost:8080/authenticate' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username": "user2",
+    "passsword": "passsword2"
+}'

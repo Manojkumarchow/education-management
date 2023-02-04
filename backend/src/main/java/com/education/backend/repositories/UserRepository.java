@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.education.backend.models.Login;
 import com.education.backend.models.UserDTO;
 
 public interface UserRepository extends JpaRepository<UserDTO, Integer> {
@@ -14,4 +15,6 @@ public interface UserRepository extends JpaRepository<UserDTO, Integer> {
 
 	@Query("select u from UserDTO u where u.username= :name")
 	List<UserDTO> findByName(@Param("name") String name);
+
+	// Login authenticateUser(String username);
 }

@@ -25,6 +25,9 @@ public class UserDTO {
 
 	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "access_level")
+	private String accessLevel;
 
 	public int getId() {
 		return id;
@@ -58,40 +61,27 @@ public class UserDTO {
 		this.password = password;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(category, id, password, username);
+	public String getAccessLevel() {
+		return accessLevel;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserDTO other = (UserDTO) obj;
-		return Objects.equals(category, other.category) && id == other.id && Objects.equals(password, other.password)
-				&& Objects.equals(username, other.username);
+	public void setAccessLevel(String accessLevel) {
+		this.accessLevel = accessLevel;
 	}
-
-	@Override
-	public String toString() {
-		return "UserDTO [id=" + id + ", username=" + username + ", category=" + category + ", password=" + password
-				+ "]";
-	}
+	
 
 	public UserDTO() {
 
 	}
-
-	public UserDTO(int id, String username, String category, String password) {
+	
+	public UserDTO(int id, String username, String category, String password, String accessLevel) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.category = category;
 		this.password = password;
+		this.accessLevel = accessLevel;
 	}
+	
 
 }

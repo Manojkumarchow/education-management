@@ -14,8 +14,6 @@ import com.education.backend.repositories.UserRepository;
 @Service
 public class UserService {
 
-	Logger logger = LoggerFactory.getLogger(UserService.class);
-
 	@Autowired
 	private UserRepository userRepository;
 
