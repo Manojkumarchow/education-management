@@ -15,7 +15,7 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
-	@PostMapping("/authenticate")
+	@PostMapping(value = "/authenticate", consumes = "application/json")
 	public ResponseEntity<?> authenticateUser(@RequestBody Login login) {
 		return loginService.authenticateUser(login);
 	}

@@ -16,5 +16,8 @@ public interface UserRepository extends JpaRepository<UserDTO, Integer> {
 	@Query("select u from UserDTO u where u.username= :name")
 	List<UserDTO> findByName(@Param("name") String name);
 
+	@Query("select u from UserDTO u where u.username= :name and u.password= :password")
+	List<UserDTO> authenticateUser(@Param("name") String name, @Param("password") String password);
+
 	// Login authenticateUser(String username);
 }

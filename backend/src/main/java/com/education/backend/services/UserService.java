@@ -2,8 +2,6 @@ package com.education.backend.services;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -15,7 +13,11 @@ import com.education.backend.repositories.UserRepository;
 public class UserService {
 
 	@Autowired
-	private UserRepository userRepository;
+	private final UserRepository userRepository;
+
+	public UserService(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
 	public List<UserDTO> getUsers() {
 
@@ -27,10 +29,9 @@ public class UserService {
 		return userRepository.findByName(name);
 	}
 
-	@SuppressWarnings("unchecked")
 	public ResponseEntity<UserDTO> createUser(UserDTO userDTO) {
 		UserDTO user = userRepository.save(userDTO);
-		return user != null ? ResponseEntity.ok(user) : (ResponseEntity<UserDTO>) ResponseEntity.badRequest();
+		return ResponseEntity.ok(user);
 	}
 
 	public ResponseEntity<String> deleteUser(Long id) {
