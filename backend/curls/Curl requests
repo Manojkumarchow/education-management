@@ -27,5 +27,5 @@ curl --location --request POST 'http://localhost:8080/authenticate' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "username": "user2",
-    "passsword": "passsword2"
+    "password": "password2"
 }'
