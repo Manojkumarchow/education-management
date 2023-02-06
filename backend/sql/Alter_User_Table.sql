@@ -1,0 +1,1 @@
+alter table Users add access_level varchar(10) default null;
