@@ -8,11 +8,11 @@ import java.util.Objects;
 // "name" field is used when table or columns names are different
 // from the model class -- >"Professors" & "ProfessorDTO"
 @Entity
-@Table(name = "Professors")
+@Table(name = "professors")
 public class ProfessorDTO {
     @Id
-    @Column(name = "professor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int professorId;
     //    @Id refers to the primary key of the current entity
     //    The @GeneratedValue annotation is to configure the way of increment
@@ -25,13 +25,13 @@ public class ProfessorDTO {
 
     //    Define each variable as Column by using the annotation @Column.
 
-    @Column(name = "professorUsername")
+    @Column(name = "professorusername")
     private String professorUsername;
-    @Column(name = "professorDepartment")
+    @Column(name = "professordepartment")
     private String professorDepartment;
-    @Column(name = "professorPassword")
+    @Column(name = "professorpassword")
     private String professorPassword;
-    @Column(name = "professorSalary")
+    @Column(name = "professorsalary")
     private long professorSalary;
 
     public int getProfessorId() {
@@ -75,17 +75,6 @@ public class ProfessorDTO {
     }
 
     @Override
-    public String toString() {
-        return "ProfessorDTO{" +
-                "professor_ID=" + professorId +
-                ", professorUsername='" + professorUsername + '\'' +
-                ", professorDepartment='" + professorDepartment + '\'' +
-                ", professorPassword='" + professorPassword + '\'' +
-                ", professorSalary=" + professorSalary +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -98,14 +87,25 @@ public class ProfessorDTO {
         return Objects.hash(professorId, professorUsername, professorDepartment, professorPassword, professorSalary);
     }
 
-    public ProfessorDTO() {
-    }
-
-    public ProfessorDTO(int professor_ID, String professorUsername, String professorDepartment, String professorPassword, long professorSalary) {
-        this.professorId = professor_ID;
+    public ProfessorDTO(int professorId, String professorUsername, String professorDepartment, String professorPassword, long professorSalary) {
+        this.professorId = professorId;
         this.professorUsername = professorUsername;
         this.professorDepartment = professorDepartment;
         this.professorPassword = professorPassword;
         this.professorSalary = professorSalary;
+    }
+
+    public ProfessorDTO() {
+    }
+
+    @Override
+    public String toString() {
+        return "ProfessorDTO{" +
+                "professorId=" + professorId +
+                ", professorUsername='" + professorUsername + '\'' +
+                ", professorDepartment='" + professorDepartment + '\'' +
+                ", professorPassword='" + professorPassword + '\'' +
+                ", professorSalary=" + professorSalary +
+                '}';
     }
 }

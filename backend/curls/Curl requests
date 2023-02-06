@@ -11,10 +11,10 @@ Create Professor
 curl --location --request POST 'http://localhost:8080/professors/createProfessor' \
 --header 'Content-Type:application/json' \
 --data-raw '{
-    // "professor_id": 1,
-    "professorUsername": "professor1",
-    "professorDepartment": "department1",
-    "professorPassword": "password1"
+    // "id": 1,
+    "professorusername": "professor1",
+    "professordepartment": "department1",
+    "professorpassword": "password1"
 }'
 
 Delete Professor By Id
