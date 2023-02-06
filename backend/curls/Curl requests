@@ -1,22 +1,22 @@
-Get All Users
+Get All Professors
 
-curl --location --request GET 'http://localhost:8080/users'
+curl --location --request GET 'http://localhost:8080/professors'
 
-Get User By Id
+Get Faculty By Id
 
-curl --location --request GET 'http://localhost:8080/users/user1'
+curl --location --request GET 'http://localhost:8080/professors/professor1'
 
-Create User
+Create Professor
 
-curl --location --request POST 'http://localhost:8080/users/createUser' \
---header 'Content-Type: application/json' \
+curl --location --request POST 'http://localhost:8080/professors/createProfessor' \
+--header 'Content-Type:application/json' \
 --data-raw '{
-    // "id": 4,
-    "username": "user1",
-    "category": "category1",
-    "password": "password1"
+    // "id": 1,
+    "professorusername": "professor1",
+    "professordepartment": "department1",
+    "professorpassword": "password1"
 }'
 
-Delete User By Id
+Delete Professor By Id
 
-curl --location --request DELETE 'http://localhost:8080/users/1'
+curl --location --request DELETE 'http://localhost:8080/professors/1'
