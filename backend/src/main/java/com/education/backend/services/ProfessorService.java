@@ -1,7 +1,7 @@
-package com.education.backend.staffModule.services;
+package com.education.backend.services;
 
-import com.education.backend.staffModule.models.ProfessorDTO;
-import com.education.backend.staffModule.repositories.ProfessorRepository;
+import com.education.backend.models.ProfessorDTO;
+import com.education.backend.repositories.ProfessorRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.education.backend.staffModule.controllers;
+package com.education.backend.controllers;
 
 
 //  @Controller annotation indicates that the class is a “controller” like a
@@ -7,8 +7,8 @@ package com.education.backend.staffModule.controllers;
 //  semantics by default. In @Controller, we need to use @ResponseBody on
 //  every handler method.
 
-import com.education.backend.staffModule.models.ProfessorDTO;
-import com.education.backend.staffModule.services.ProfessorService;
+import com.education.backend.models.ProfessorDTO;
+import com.education.backend.services.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

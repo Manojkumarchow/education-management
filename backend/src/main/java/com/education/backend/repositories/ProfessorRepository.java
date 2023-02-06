@@ -1,6 +1,6 @@
-package com.education.backend.staffModule.repositories;
+package com.education.backend.repositories;
 
-import com.education.backend.staffModule.models.ProfessorDTO;
+import com.education.backend.models.ProfessorDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

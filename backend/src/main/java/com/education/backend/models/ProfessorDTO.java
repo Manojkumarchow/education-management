@@ -1,4 +1,4 @@
-package com.education.backend.staffModule.models;
+package com.education.backend.models;
 
 import jakarta.persistence.*;
 
