@@ -13,7 +13,7 @@ public class ProfessorDTO {
     @Id
     @Column(name = "professor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int professor_ID;
+    private int professorId;
     //    @Id refers to the primary key of the current entity
     //    The @GeneratedValue annotation is to configure the way of increment
     //    of the specified column(field). For example when using Mysql, you may specify
@@ -25,21 +25,21 @@ public class ProfessorDTO {
 
     //    Define each variable as Column by using the annotation @Column.
 
-    @Column(name = "professor_username")
+    @Column(name = "professorUsername")
     private String professorUsername;
-    @Column(name = "professor_department")
+    @Column(name = "professorDepartment")
     private String professorDepartment;
-    @Column(name = "professor_password")
+    @Column(name = "professorPassword")
     private String professorPassword;
-    @Column(name = "professor_salary")
+    @Column(name = "professorSalary")
     private long professorSalary;
 
-    public int getProfessor_ID() {
-        return professor_ID;
+    public int getProfessorId() {
+        return professorId;
     }
 
-    public void setProfessor_ID(int professor_ID) {
-        this.professor_ID = professor_ID;
+    public void setProfessorId(int professorId) {
+        this.professorId = professorId;
     }
 
     public String getProfessorUsername() {
@@ -77,7 +77,7 @@ public class ProfessorDTO {
     @Override
     public String toString() {
         return "ProfessorDTO{" +
-                "professor_ID=" + professor_ID +
+                "professor_ID=" + professorId +
                 ", professorUsername='" + professorUsername + '\'' +
                 ", professorDepartment='" + professorDepartment + '\'' +
                 ", professorPassword='" + professorPassword + '\'' +
@@ -90,19 +90,19 @@ public class ProfessorDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProfessorDTO that = (ProfessorDTO) o;
-        return professor_ID == that.professor_ID && professorSalary == that.professorSalary && Objects.equals(professorUsername, that.professorUsername) && Objects.equals(professorDepartment, that.professorDepartment) && Objects.equals(professorPassword, that.professorPassword);
+        return professorId == that.professorId && professorSalary == that.professorSalary && Objects.equals(professorUsername, that.professorUsername) && Objects.equals(professorDepartment, that.professorDepartment) && Objects.equals(professorPassword, that.professorPassword);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(professor_ID, professorUsername, professorDepartment, professorPassword, professorSalary);
+        return Objects.hash(professorId, professorUsername, professorDepartment, professorPassword, professorSalary);
     }
 
     public ProfessorDTO() {
     }
 
     public ProfessorDTO(int professor_ID, String professorUsername, String professorDepartment, String professorPassword, long professorSalary) {
-        this.professor_ID = professor_ID;
+        this.professorId = professor_ID;
         this.professorUsername = professorUsername;
         this.professorDepartment = professorDepartment;
         this.professorPassword = professorPassword;

@@ -11,9 +11,7 @@ import com.education.backend.staffModule.models.ProfessorDTO;
 import com.education.backend.staffModule.services.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,7 +31,12 @@ public class ProfessorController {
         return professorService.getProfessorByName(name);
     }
 
-    @GetMapping("/professors/{id}")
+    @PostMapping(value = "/professors/createProfessor", consumes = "application/json")
+	public ResponseEntity<ProfessorDTO> createProfessor(@RequestBody ProfessorDTO professorDTO) {
+		return professorService.createProfessor(professorDTO);
+	}
+
+    @DeleteMapping("/professors/{id}")
     public ResponseEntity<String> deleteProfessor(@PathVariable(value = "id") Long id) {
         return professorService.deleteProfessor(id);
     }
