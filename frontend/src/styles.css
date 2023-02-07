@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.logo {
+    width: 140px; 
+    height: 140px; 
+    align-items: center;
+}
+
+.link-style {
+    color: #0D6EFD;
+    text-decoration: underline;
+    cursor: pointer;
+}

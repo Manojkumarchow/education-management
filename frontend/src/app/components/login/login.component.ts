@@ -17,9 +17,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(){}
 
-  onSubmit(form: NgForm) {}
+  onSubmit(form: NgForm) {
+    console.log('form',form);
+  }
 
   openRegistration(){
-    // this.router.navigate(["registration"]);
+    this.router.navigate(["registration"]);
   }
 }

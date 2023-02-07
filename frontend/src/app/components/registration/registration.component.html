@@ -1,0 +1,104 @@
+<div class="card registration-card">
+    <div class="card-body">
+        <form [formGroup]="regForm" (ngSubmit)="onRegister()" class="form">
+            <div class="d-flex justify-content-center">
+                <img src="assets/logo.png" class="logo">
+            </div>
+            <div class="row">
+                <div class="col-6">
+
+                    <div class="form-group mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" 
+                            class="form-control"
+                            id="username"
+                            formControlName="username" 
+                            [ngClass]="{ 'is-valid' : regForm.get('username')?.touched && regForm.get('username')?.valid, 'is-invalid ': regForm.get('username')?.touched && regForm.get('username')?.invalid }"
+                            required 
+                            placeholder="Username"
+                            aria-describedby="username">
+                        <div *ngIf="regForm.get('username')?.errors && (regForm.get('username')?.dirty || regForm.get('username')?.touched)" class="invalid-feedback">
+                            Please enter username.
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="password" class="form-label">Password  
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        </label>
+                        <input type="password" 
+                            class="form-control"
+                            id="password" 
+                            formControlName="password" 
+                            [ngClass]="{ 'is-valid' : regForm.get('password')?.touched && regForm.get('password')?.valid, 'is-invalid ': regForm.get('password')?.touched && regForm.get('password')?.invalid }"
+                            required 
+                            placeholder="Password"
+                            aria-describedby="password"
+                            (ngModelChange)="onChangePassword($event)"
+                            >
+                        <div *ngIf="regForm.get('password')?.errors && (regForm.get('password')?.dirty || regForm.get('password')?.touched)" class="invalid-feedback">
+                            Please enter a valid password.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password"
+                            class="form-control"
+                            id="confirmPassword" 
+                            formControlName="confirmPassword" 
+                            [ngClass]="{ 'is-valid' : regForm.get('confirmPassword')?.touched && regForm.get('confirmPassword')?.valid, 'is-invalid ': (regForm.get('confirmPassword')?.touched && regForm.get('confirmPassword')?.invalid) || !passwordMatch }"
+                            required 
+                            placeholder="Confirm Password"
+                            aria-describedby="confirmPassword"
+                            (ngModelChange)="confirmPasswordCheck($event)">
+                        <div *ngIf="(regForm.get('confirmPassword')?.errors && (regForm.get('confirmPassword')?.dirty || regForm.get('confirmPassword')?.touched)) || !passwordMatch" class="invalid-feedback">
+                            <span *ngIf="!passwordMatch">Your password doesn't match.</span>
+                            <span *ngIf="passwordMatch">Please confirm your password</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-6">
+
+                    <div class="mb-3">
+                        <label for="securityQuestion" class="form-label">Security Question</label>
+                        <select class="form-select" 
+                            aria-label="Default select example"
+                            id="securityQuestion" 
+                            formControlName="securityQuestion" 
+                            required
+                            aria-describedby="securityQuestion">
+                            <option value="1" selected>What is your favorite movie?</option>
+                            <option value="2">What is your favorite sport?</option>
+                            <option value="3">What is your mother's maiden name?</option>
+                            <option value="4">What is your favorite colour?</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="securityAnswer" class="form-label">Security Answer</label>
+                        <input type="text" 
+                            class="form-control"
+                            [ngClass]="{ 'is-valid' : regForm.get('securityAnswer')?.touched && regForm.get('securityAnswer')?.valid, 'is-invalid ': regForm.get('securityAnswer')?.touched && regForm.get('securityAnswer')?.invalid }"
+                            id="securityAnswer" 
+                            formControlName="securityAnswer"
+                            required 
+                            placeholder="Security Answer"
+                            aria-describedby="securityAnswer">
+                        <div *ngIf="regForm.get('securityAnswer')?.errors && (regForm.get('securityAnswer')?.dirty || regForm.get('securityAnswer')?.touched)" class="invalid-feedback">
+                            Please enter security answer.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="d-grid mx-auto btn-sm w-100">
+                <button type="submit" class="btn btn-primary mt-4" [disabled]="regForm.invalid || !passwordMatch">Register</button>
+            </div>
+        </form>
+        <div class="d-flex justify-content-center">
+            <span class="forgot-password mt-5 pt-4">Already an existing user? <a class="link-style" (click)="openLogin()">Login</a></span>
+        </div>
+    </div>
+</div>

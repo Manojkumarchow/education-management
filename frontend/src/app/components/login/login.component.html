@@ -13,6 +13,7 @@
                     ngModel 
                     required 
                     #username="ngModel" 
+                    placeholder="Username"
                     aria-describedby="username">
                 <div *ngIf="username.errors && (username.dirty || username.touched)" class="invalid-feedback">
                     Please enter username.
@@ -27,6 +28,7 @@
                     ngModel
                     required 
                     #password="ngModel"
+                    placeholder="Password"
                     aria-describedby="password">
                 <div *ngIf="password.errors && (password.dirty || password.touched)" class="invalid-feedback">
                     Please enter password.
@@ -38,7 +40,7 @@
             </div>
         </form>
         <div class="d-flex justify-content-center">
-            <span class="forgot-password mt-5 pt-4">Don't have an account yet? <a href="" (click)="openRegistration()">Register here</a></span>
+            <span class="forgot-password mt-5 pt-4">Don't have an account yet? <a class="link-style" (click)="openRegistration()">Register here</a></span>
         </div>
     </div>
 </div>
