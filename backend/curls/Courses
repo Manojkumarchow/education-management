@@ -1,0 +1,29 @@
+Get Courses
+
+curl --location --request GET 'http://localhost:8080/courses'
+
+Get Courses By Name
+
+curl --location --request GET 'http://localhost:8080/courses/Java'
+
+Create Course
+
+curl --location --request POST 'http://localhost:8080/courses/createCourse' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "courseId": "course_7",
+    "courseName": "Angular",
+    "isActive": "Y"
+}'
+
+Delete Course By Id
+
+curl --location --request DELETE 'http://localhost:8080/courses/6'
+
+Get Course By Id
+
+curl --location --request GET 'http://localhost:8080/courses/all/1'
+
+Get Course By Course Id
+
+curl --location --request GET 'http://localhost:8080/courses/courseid/course_1'
