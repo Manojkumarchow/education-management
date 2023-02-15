@@ -9,4 +9,12 @@
     color: #0D6EFD;
     text-decoration: underline;
     cursor: pointer;
+    font-size: 13.6px;
+}
+
+.forgot-password {
+    margin-top: 0.25rem;
+    font-size: .850em;
+    /* float: right; */
+    cursor: pointer;
 }

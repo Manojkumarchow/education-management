@@ -1,5 +1,5 @@
 <div class="card registration-card">
-    <div class="card-body">
+    <div class="card-body pt-0">
         <form [formGroup]="regForm" (ngSubmit)="onRegister()" class="form">
             <div class="d-flex justify-content-center">
                 <img src="assets/logo.png" class="logo">
@@ -93,12 +93,12 @@
 
                 </div>
             </div>
-            <div class="d-grid mx-auto btn-sm w-100">
-                <button type="submit" class="btn btn-primary mt-4" [disabled]="regForm.invalid || !passwordMatch">Register</button>
+            <div class="text-center mt-2 mb-2">
+                <button type="submit" class="btn btn-success" [disabled]="regForm.invalid || !passwordMatch">Register</button>
             </div>
         </form>
         <div class="d-flex justify-content-center">
-            <span class="forgot-password mt-5 pt-4">Already an existing user? <a class="link-style" (click)="openLogin()">Login</a></span>
+            <span class="forgot-password mt-2">Already an existing user? <a class="link-style" (click)="openLogin()">Login</a></span>
         </div>
     </div>
 </div>
