@@ -40,9 +40,12 @@ Get All Students
 
 curl --location --request GET 'http://localhost:8080/students'
 
-Get Student By ID
+Get Student By Name
 
 curl --location --request GET 'http://localhost:8080/students/student1'
+
+Get Student By Id
+curl --location --request GET 'http://localhost:8080/students/name/6'
 
 Create Student
 
@@ -50,7 +53,6 @@ curl --location --request POST 'http://localhost:8080/students/createStudent' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "studentName": "student1",
-    "studentPassword": "password1",
     "studentDepartment": "department1"
 }'
 

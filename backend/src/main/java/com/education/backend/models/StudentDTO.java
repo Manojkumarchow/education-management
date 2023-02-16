@@ -7,21 +7,13 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "students")
-
 public class StudentDTO {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	@Column(name = "id")
 	private int studentId;
-	
 	@Column(name = "studentname")
 	private String studentName;
-	
-	@Column(name = "studentpassword")
-	private String studentPassword;
-	
 	@Column(name = "studentdepartment")
 	private String studentDepartment;
 	
@@ -41,14 +33,6 @@ public class StudentDTO {
 		this.studentName = studentName;
 	}
 
-	public String getStudentPassword() {
-		return studentPassword;
-	}
-
-	public void setStudentPassword(String studentPassword) {
-		this.studentPassword = studentPassword;
-	}
-
 	public String getStudentDepartment() {
 		return studentDepartment;
 	}
@@ -59,7 +43,7 @@ public class StudentDTO {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(studentDepartment, studentId, studentName, studentPassword);
+		return Objects.hash(studentDepartment, studentId, studentName);
 	}
 
 	@Override
@@ -72,16 +56,14 @@ public class StudentDTO {
 			return false;
 		StudentDTO other = (StudentDTO) obj;
 		return Objects.equals(studentDepartment, other.studentDepartment) && studentId == other.studentId
-				&& Objects.equals(studentName, other.studentName)
-				&& Objects.equals(studentPassword, other.studentPassword);
+				&& Objects.equals(studentName, other.studentName);
 	}
 	
 	public StudentDTO() {}
 	
-	public StudentDTO(int studentId, String studentName, String studentPassword, String studentDepartment) {
+	public StudentDTO(int studentId, String studentName, String studentDepartment) {
 		this.studentId = studentId;
 		this.studentName = studentName;
-		this.studentPassword = studentPassword;
 		this.studentDepartment = studentDepartment;
 	}
 
@@ -90,7 +72,6 @@ public class StudentDTO {
 		return "StudentDTO{" +
 				"studentId=" + studentId +
 				", studentName='" + studentName + '\'' +
-				", studentPassword='" + studentPassword + '\'' +
 				", studentDepartment='" + studentDepartment +
 				'}';
 				

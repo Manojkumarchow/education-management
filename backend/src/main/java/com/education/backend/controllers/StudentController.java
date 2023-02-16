@@ -30,6 +30,11 @@ public class StudentController {
 		return studentService.getStudentByName(name);
 	}
 	
+	@GetMapping("/students/name/{id}")
+	public List<StudentDTO> getStudentById(@PathVariable(value = "id") String id) {
+		return studentService.getStudentById(id);
+	}
+	
 	@PostMapping(value = "/students/createStudent", consumes = "application/json")
 	public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO) {
 		return studentService.createStudent(studentDTO);

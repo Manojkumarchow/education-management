@@ -13,4 +13,7 @@ public interface StudentRepository extends JpaRepository<StudentDTO, Integer> {
 	
 	@Query("SELECT s FROM StudentDTO AS s WHERE s.studentName= :name")
 	List<StudentDTO> findByName(@Param("name") String name);
+
+	@Query("SELECT s FROM StudentDTO AS s WHERE s.studentId= :id")
+	List<StudentDTO> findById(@Param("id") String id);
 }
