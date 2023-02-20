@@ -13,4 +13,6 @@ public interface ProfessorRepository extends JpaRepository<ProfessorDTO, Integer
 
     @Query("SELECT p FROM ProfessorDTO AS p WHERE p.professorUsername= :name")
     List<ProfessorDTO> findByName(@Param("name") String name);
+
+
 }

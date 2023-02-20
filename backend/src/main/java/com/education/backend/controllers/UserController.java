@@ -19,22 +19,22 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<UserDTO> getProfessors() {
+    public List<UserDTO> getUsers() {
         return userService.getUsers();
     }
 
     @GetMapping("/users/{name}")
-    public List<UserDTO> getProfessorByName(@PathVariable(value = "name") String name) {
+    public List<UserDTO> getUserByName(@PathVariable(value = "name") String name) {
         return userService.getUserByName(name);
     }
 
     @PostMapping(value = "/users/createUser", consumes = "application/json")
-    public ResponseEntity<?> createProfessor(@RequestBody UserDTO professorDTO) {
-        return userService.createUser(professorDTO);
+    public ResponseEntity<?> createUser(@RequestBody UserDTO user) {
+        return userService.createUser(user);
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<?> deleteProfessor(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<?> deleteUser(@PathVariable(value = "id") Long id) {
         return userService.deleteUser(id);
     }
 }
