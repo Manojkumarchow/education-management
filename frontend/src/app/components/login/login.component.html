@@ -4,16 +4,14 @@
             <div class="d-flex justify-content-center">
                 <img src="assets/logo.png" class="logo">
             </div>
+            <div *ngIf="invalidLogin" class="text-danger">
+                Wrong username or password
+            </div>
             <div class="form-group mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control"
                     [ngClass]="{ 'is-valid' : username.touched && username.valid, 'is-invalid ': username.touched && username.invalid }"
-                    id="username" 
-                    name="username" 
-                    ngModel 
-                    required 
-                    #username="ngModel" 
-                    placeholder="Username"
+                    id="username" name="username" ngModel required #username="ngModel" placeholder="Username"
                     aria-describedby="username">
                 <div *ngIf="username.errors && (username.dirty || username.touched)" class="invalid-feedback">
                     Please enter username.
@@ -23,12 +21,7 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control"
                     [ngClass]="{ 'is-valid' : password.touched && password.valid, 'is-invalid ': password.touched && password.invalid }"
-                    id="password" 
-                    name="password" 
-                    ngModel
-                    required 
-                    #password="ngModel"
-                    placeholder="Password"
+                    id="password" name="password" ngModel required #password="ngModel" placeholder="Password"
                     aria-describedby="password">
                 <div *ngIf="password.errors && (password.dirty || password.touched)" class="invalid-feedback">
                     Please enter password.
@@ -40,7 +33,8 @@
             </div>
         </form>
         <div class="d-flex justify-content-center">
-            <span class="forgot-password mt-3">Don't have an account yet? <a class="link-style" (click)="openRegistration()">Register here</a></span>
+            <span class="forgot-password mt-3">Don't have an account yet? <a class="link-style"
+                    (click)="openRegistration()">Register here</a></span>
         </div>
     </div>
 </div>
