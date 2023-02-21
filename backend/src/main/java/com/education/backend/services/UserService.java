@@ -34,7 +34,6 @@ public class UserService {
     }
 
     public List<UserDTO> getUserByName(String name) {
-
         try {
             return userRepository.findByName(name);
         } catch (Exception e) {
@@ -61,7 +60,6 @@ public class UserService {
     }
 
     public ResponseEntity<?> deleteUser(Long id) {
-
         try {
             userRepository.deleteById(Integer.parseUnsignedInt(String.valueOf(id)));
             return ResponseEntity.ok("User Deleted");
@@ -72,4 +70,12 @@ public class UserService {
 
     }
 
+    public ResponseEntity<?> updateUserAccessLevel(UserDTO user) {
+        try {
+            return ResponseEntity.ok(userRepository.save(user));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Error while updating the user", HttpStatus.BAD_REQUEST);
+        }
+    }
 }

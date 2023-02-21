@@ -33,6 +33,11 @@ public class UserController {
         return userService.createUser(user);
     }
 
+    @PutMapping(value = "/users/accessLevel", consumes = "application/json")
+    public ResponseEntity<?> updateUserAccessLevel(@RequestBody UserDTO user) {
+        return userService.updateUserAccessLevel(user);
+    }
+
     @DeleteMapping("/users/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable(value = "id") Long id) {
         return userService.deleteUser(id);
