@@ -29,12 +29,12 @@ public class UserController {
     }
 
     @PostMapping(value = "/users/createUser", consumes = "application/json")
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO user) {
+    public ResponseEntity<?> createUser(@RequestBody UserDTO user) {
         return userService.createUser(user);
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<?> deleteUser(@PathVariable(value = "id") Long id) {
         return userService.deleteUser(id);
     }
 }

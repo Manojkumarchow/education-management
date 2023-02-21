@@ -1,44 +1,75 @@
 package com.education.backend.services;
 
-import java.util.List;
-
+import com.education.backend.models.UserDTO;
+import com.education.backend.repositories.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.education.backend.models.UserDTO;
-import com.education.backend.repositories.UserRepository;
+import java.util.List;
 
 @Service
 public class UserService {
 
-	@Autowired
-	private final UserRepository userRepository;
+    Logger logger = LoggerFactory.getLogger(UserService.class);
+    @Autowired
+    private final UserRepository userRepository;
 
-	public UserService(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-	public List<UserDTO> getUsers() {
+    public List<UserDTO> getUsers() {
+        try {
+            return userRepository.findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("Error while fetching the users");
+            return null;
+        }
+    }
 
-		return userRepository.findAll();
+    public List<UserDTO> getUserByName(String name) {
 
-	}
+        try {
+            return userRepository.findByName(name);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("Error while fetching the user by name");
+            return null;
+        }
+    }
 
-	public List<UserDTO> getUserByName(String name) {
-		return userRepository.findByName(name);
-	}
+    public ResponseEntity<?> createUser(UserDTO userDTO) {
+        try {
+            UserDTO user = userRepository.save(userDTO);
+            return ResponseEntity.ok(user);
+        } catch (DataIntegrityViolationException dataIntegrityViolationException) {
+            dataIntegrityViolationException.printStackTrace();
+            logger.error("Error while saving the user");
+            return new ResponseEntity<>("Error while saving the user to the database", HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("Exception while saving the user");
+            return new ResponseEntity<>("Exception while saving the user", HttpStatus.BAD_REQUEST);
+        }
 
-	public ResponseEntity<UserDTO> createUser(UserDTO userDTO) {
-		UserDTO user = userRepository.save(userDTO);
-		return ResponseEntity.ok(user);
-	}
+    }
 
-	public ResponseEntity<String> deleteUser(Long id) {
+    public ResponseEntity<?> deleteUser(Long id) {
 
-		userRepository.deleteById(Integer.parseUnsignedInt(String.valueOf(id)));
+        try {
+            userRepository.deleteById(Integer.parseUnsignedInt(String.valueOf(id)));
+            return ResponseEntity.ok("User Deleted");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Error while deleting the user", HttpStatus.BAD_REQUEST);
+        }
 
-		return ResponseEntity.ok("User Deleted");
-	}
+    }
 
 }

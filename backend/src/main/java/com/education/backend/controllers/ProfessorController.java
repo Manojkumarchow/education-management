@@ -32,12 +32,12 @@ public class ProfessorController {
     }
 
     @PostMapping(value = "/professors/createProfessor", consumes = "application/json")
-	public ResponseEntity<ProfessorDTO> createProfessor(@RequestBody ProfessorDTO professorDTO) {
-		return professorService.createProfessor(professorDTO);
-	}
+    public ResponseEntity<?> createProfessor(@RequestBody ProfessorDTO professorDTO) {
+        return professorService.createProfessor(professorDTO);
+    }
 
     @DeleteMapping("/professors/{id}")
-    public ResponseEntity<String> deleteProfessor(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<?> deleteProfessor(@PathVariable(value = "id") Long id) {
         return professorService.deleteProfessor(id);
     }
 }
