@@ -7,6 +7,7 @@ package com.education.backend.controllers;
 //  semantics by default. In @Controller, we need to use @ResponseBody on
 //  every handler method.
 
+import com.education.backend.models.ProfessorBO;
 import com.education.backend.models.ProfessorDTO;
 import com.education.backend.services.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProfessorController {
 
     @Autowired
     private ProfessorService professorService;
 
     @GetMapping("/professors")
-    public List<ProfessorDTO> getProfessors() {
+    public List<ProfessorBO> getProfessors() {
         return professorService.getAllProfessors();
     }
 
