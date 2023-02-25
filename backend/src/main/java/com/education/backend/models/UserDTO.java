@@ -20,14 +20,17 @@ public class UserDTO {
 	@Column(name = "username")
 	private String username;
 
-	@Column(name = "category")
-	private String category;
-
 	@Column(name = "password")
 	private String password;
 	
 	@Column(name = "access_level")
 	private String accessLevel;
+	
+	@Column (name = "security_question")
+	private String securityQuestion;
+
+	@Column (name = "security_answer")
+	private String securityAnswer;
 
 	public int getId() {
 		return id;
@@ -43,14 +46,6 @@ public class UserDTO {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
 	}
 
 	public String getPassword() {
@@ -69,18 +64,34 @@ public class UserDTO {
 		this.accessLevel = accessLevel;
 	}
 	
+	public String getSecurityQuestion() {
+		return securityQuestion;
+	}
+
+	public void setSecurityQuestion(String securityQuestion) {
+		this.securityQuestion = securityQuestion;
+	}
+
+	public String getSecurityAnswer() {
+		return securityAnswer;
+	}
+
+	public void setSecurityAnswer(String securityAnswer) {
+		this.securityAnswer = securityAnswer;
+	}
 
 	public UserDTO() {
 
 	}
 	
-	public UserDTO(int id, String username, String category, String password, String accessLevel) {
+	public UserDTO(int id, String username, String password, String accessLevel, String securityQuestion, String securityAnswer) {
 		super();
 		this.id = id;
 		this.username = username;
-		this.category = category;
 		this.password = password;
 		this.accessLevel = accessLevel;
+		this.securityQuestion = securityQuestion;
+		this.securityAnswer = securityAnswer;
 	}
 	
 
