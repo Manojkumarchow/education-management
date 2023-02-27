@@ -32,7 +32,7 @@ export class RegistrationComponent implements OnInit {
     let obj: RegistrationForm = new RegistrationForm(
       this.regForm.value.username,
       this.regForm.value.password,
-      'n',
+      'N',
       this.regForm.value.securityQuestion,
       this.regForm.value.securityAnswer
     );
