@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, NgForm, FormControl, FormArray, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegistrationService } from './registration.service';
+import { RegistrationForm } from './registration.form';
 
 @Component({
   selector: 'app-registration',
@@ -12,10 +14,11 @@ export class RegistrationComponent implements OnInit {
   passwordMatch: boolean = true;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private registrationService: RegistrationService
   ){}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.regForm = new FormGroup({
       username: new FormControl(null, Validators.required),
       password: new FormControl(null, [Validators.required, Validators.pattern(/^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/)]),
@@ -25,7 +28,19 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  onRegister(){}
+  onRegister(){
+    let obj: RegistrationForm = new RegistrationForm(
+      this.regForm.value.username,
+      this.regForm.value.password,
+      'N',
+      this.regForm.value.securityQuestion,
+      this.regForm.value.securityAnswer
+    );
+    
+    this.registrationService.postRegistrationData(obj).subscribe(response => {
+      console.log('response',response);
+    })
+  }
 
   confirmPasswordCheck(e: any){
     this.passwordMatch = (this.regForm.get('password')?.value == e) ? true : false;
